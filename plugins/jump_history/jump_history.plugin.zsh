@@ -78,7 +78,8 @@ function jump {
         JUMP_POINT=$[ $1 ]
     ;;
     /*)
-        JUMP_POINT=`grep -n \^$1\$ $JUMP_HISTORY_FILE|cut -f1 -d:`
+        JUMP_POINT=`tac $JUMP_HISTORY_FILE|grep -n \^$1\$|cut -f1 -d:`
+        JUMP_POINT=$[ $JUMP_POINT ]
     ;;
     *)
         jump list
