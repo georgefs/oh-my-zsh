@@ -97,4 +97,7 @@ alias j='jump'
 alias jp="jump -"
 alias jn="jump +"
 
-compctl -k "( ` < $JUMP_HISTORY_FILE `)" j jump
+function jump_list(){
+    reply=(`cat $JUMP_HISTORY_FILE`);
+}
+compctl -K jump_list j jump
